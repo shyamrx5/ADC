@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khanni Gamma Table</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .box-container {
+            display: flex;
+            flex-direction: row;
+            margin-top: 20px;
+        }
+
+        .top-section {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .bottom-section {
+            display: flex;
+            flex-direction: row;
+        }
+
+.box {
+    width: 70px; /* Adjust the width to make the boxes smaller */
+    height: 50px; /* Adjust the height to make the boxes smaller */
+    text-align: center;
+    font-size: 10px; /* Adjust the font size if needed */
+    color: #ffffff;
+}
+
+        .label-box {
+            background-color: #9DC3E6;
+        }
+
+        .empty-box1 {
+            background-color: #DEEBF7;
+        }
+
+        .label-box2 {
+            background-color: #48486C;
+        }
+
+        .empty-box2 {
+            background-color: #797991;
+        }
+.hidden-tooltip {
+  display: none;
+  position: absolute;
+  background-color: red; /* or any other color you prefer */
+  color: white;
+  padding: 5px;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+.potential-link:hover + .hidden-tooltip {
+  display: inline-block;
+}
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 6px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gamma Table Data</h1>
+
+    <div class="box-container">
+            <div class="container">
+        <div class="top-section">
+            <div class="box label-box">GN</div>
+            <div class="box empty-box1"></div>
+        </div>
+        <div class="bottom-section">
+            <div class="box label-box2">Bam</div>
+            <div class="box empty-box2"></div>
+        </div>
+    </div>
+    <div style="margin-left: 20px;"></div>
+        <div class="box label-box" style="background-color: red;">GP</div>
+        <div class="box label-box2" style="background-color: #FF8181;margin-right: 10px">GP</div>
+        <div class="box" style="background-color: #7030A0; color: white;">BR</div>
+        <div class="box" style="background-color: #C9A6E4; color: white;margin-right: 10px;">BR</div>
+        <div class="box" style="background-color: yellow; color: black;">Mammal</div>
+        <div class="box" style="background-color: #FFF2CC; color: black;margin-right: 10px;">Mammal</div>
+        <div class="box" style="background-color: black; color: white; margin-right: 10px;">ALL</div>
+        <div class="box label-box" style="background-color: #C65911; color: white;">W0153</div>
+        <div class="box label-box2" style="background-color: #F4B084; color: white;margin-right: 10px;">W0153</div>
+        <div class="box" style="background-color: #002060; color: white;margin-right: 10px;">Fung+Bac</div>
+        <div class="box" style="background-color: #00B050; color: white;">Ab</div>
+        <div class="box label-box2" style="background-color: #61D495; color: white;margin-right: 10px;">Ab</div>
+        <div class="box" style="background-color: #00B0F0; color: white;margin-right: 10px;">C auris selective</div>
+        <div class="box label-box" style="background-color: #806000; color: white;">Mab</div>
+        <div class="box label-box2" style="background-color: #BF8F00; color: white;margin-right: 10px;">Mab</div>
+    </div>
+
+    
+    <table>
+        <tr>
+            <th>Lib_Collection_ID</th>
+            <th>KLE_ID</th>
+            <th>Genus</th>
+            <th>Species</th>
+            <th>Strain</th>
+            <th>DSM_ID</th>
+            <th>Select_Value</th>
+            <th>A1</th>
+            <th>A2</th>
+            <th>A3</th>
+            <th>A4</th>
+            <th>A5</th>
+            <th>A6</th>
+            <th>A7</th>
+            <th>A8</th>
+            <th>A9</th>
+            <th>A10</th>
+            <th>A11</th>
+            <th>A12</th>
+            <th>B1</th>
+            <th>B2</th>
+            <th>B3</th>
+            <th>B4</th>
+            <th>B5</th>
+            <th>B6</th>
+            <th>B7</th>
+            <th>B8</th>
+            <th>B9</th>
+            <th>B10</th>
+            <th>B11</th>
+            <th>B12</th>
+            <!-- Continue adding headers for columns C1 to H12 -->
+            <th>C1</th>
+            <th>C2</th>
+            <th>C3</th>
+            <th>C4</th>
+            <th>C5</th>
+            <th>C6</th>
+            <th>C7</th>
+            <th>C8</th>
+            <th>C9</th>
+            <th>C10</th>
+            <th>C11</th>
+            <th>C12</th>
+            <th>D1</th>
+            <th>D2</th>
+            <th>D3</th>
+            <th>D4</th>
+            <th>D5</th>
+            <th>D6</th>
+            <th>D7</th>
+            <th>D8</th>
+            <th>D9</th>
+            <th>D10</th>
+            <th>D11</th>
+            <th>D12</th>
+            <th>E1</th>
+            <th>E2</th>
+            <th>E3</th>
+            <th>E4</th>
+            <th>E5</th>
+            <th>E6</th>
+            <th>E7</th>
+            <th>E8</th>
+            <th>E9</th>
+            <th>E10</th>
+            <th>E11</th>
+            <th>E12</th>
+            <th>F1</th>
+            <th>F2</th>
+            <th>F3</th>
+            <th>F4</th>
+            <th>F5</th>
+            <th>F6</th>
+            <th>F7</th>
+            <th>F8</th>
+            <th>F9</th>
+            <th>F10</th>
+            <th>F11</th>
+            <th>F12</th>
+            <th>G1</th>
+            <th>G2</th>
+            <th>G3</th>
+            <th>G4</th>
+            <th>G5</th>
+            <th>G6</th>
+            <th>G7</th>
+            <th>G8</th>
+            <th>G9</th>
+            <th>G10</th>
+            <th>G11</th>
+            <th>G12</th>
+            <th>H1</th>
+            <th>H2</th>
+            <th>H3</th>
+            <th>H4</th>
+            <th>H5</th>
+            <th>H6</th>
+            <th>H7</th>
+            <th>H8</th>
+            <th>H9</th>
+            <th>H10</th>
+            <th>H11</th>
+            <th>H12</th>
+        </tr>
+        <!-- Iterate through your data and generate rows -->
+                <!-- Continue the for loop for each row in gamma_data -->
+        {% for row in khani_gamma_data %}
+        <tr>
+            <td>{{ row.Lib_Collection_ID }}</td>
+            <td>{{ row.KLE_ID }}</td>
+            <td>{{ row.Genus }}</td>
+            <td>{{ row.Species }}</td>
+            <td>{{ row.Strain }}</td>
+            <td>{{ row.DSM_ID }}</td>
+            <td>{{ row.Select_Value }}</td>
+            <td>{{ row.A1 }}</td>
+            <td>{{ row.A2 }}</td>
+            <!-- Continue adding cells for columns A3 to H12 -->
+            <td>{{ row.A3 }}</td>
+            <td>{{ row.A4 }}</td>
+            <td>{{ row.A5 }}</td>
+                  <td style="background-color: {% if row.DSM_ID in ['38TSB', '38TNM'] %}black{% else %}inherit{% endif %}; color: {% if row.DSM_ID in ['38TSB', '38TNM'] %}white{% else %}black{% endif %};">{{ row.A6 }}</td>
+        <td style="background-color: {% if row.DSM_ID == '38TNM' %}yellow{% endif %};">{{ row.A7 }}</td>
+        <td style="background-color: {% if row.DSM_ID == '38TNM' %}black{% elif row.DSM_ID == '38SYM' %}#FF8181{% else %}inherit{% endif %}; color: {% if row.DSM_ID in ['38TNM', '38SYM'] %}white{% else %}black{% endif %};">{{ row.A8 }}</td>
+        <td style="background-color: {% if row.DSM_ID == '38TNM' %}red{% endif %};">{{ row.A9 }}</td> 
+        <td style="background-color: {% if row.DSM_ID == '38TNM' %}red{% elif row.DSM_ID == '38SYM' %}#FF8181{% endif %};">{{ row.A10 }}</td> 
+            <td>{{ row.A11 }}</td>
+            <td>{{ row.A12 }}</td>
+            <td>{{ row.B1 }}</td>
+            <td>{{ row.B2 }}</td>
+            <td>{{ row.B3 }}</td>
+            <td>{{ row.B4 }}</td>
+            <td>{{ row.B5 }}</td>
+            <td>{{ row.B6 }}</td>
+            <td>{{ row.B7 }}</td>
+            <td>{{ row.B8 }}</td>
+            <td>{{ row.B9 }}</td>
+            <td style="background-color: {% if row.DSM_ID == '38SYM' %}#FFFF9F{% else %}inherit{% endif %}; color: {% if row.DSM_ID == '38SYM' %}black{% else %}inherit{% endif %};">{{ row.B10 }}</td>
+
+            <td>{{ row.B11 }}</td>
+            <td>{{ row.B12 }}</td>
+            <!-- Continue adding cells for columns C1 to H12 -->
+            <td>{{ row.C1 }}</td>
+            <td style="background-color: {% if row.DSM_ID == '38TNM' %}#DEEBF7{% else %}inherit{% endif %}; color: {% if row.DSM_ID == '38TNM' %}black{% else %}inherit{% endif %};">{{ row.C2 }}</td>
+
+            <td>{{ row.C3 }}</td>
+            <td>{{ row.C4 }}</td>
+            <td>{{ row.C5 }}</td>
+            <td>{{ row.C6 }}</td>
+            <td style="background-color: {% if row.DSM_ID == '38TSB' %}#9DC3E6{% elif row.DSM_ID == '38TNM' %}#DEEBF7{% else %}inherit{% endif %}; color: {% if row.DSM_ID in ['38TSB', '38TNM'] %}black{% else %}inherit{% endif %};">{{ row.C7 }}</td>
+
+            <td>{{ row.C8 }}</td>
+            <td>{{ row.C9 }}</td>
+            <td>{{ row.C10 }}</td>
+            <td style="background-color: 
+    {% if row.DSM_ID == '38TSB' %}
+        #FF8181
+    {% else %}
+        inherit
+    {% endif %};
+    color: {% if row.DSM_ID in ['38TSB', '38TNM'] %}white{% else %}black{% endif %};">
+    {{ row.C11 }}
+</td>
+
+            <td>{{ row.C12 }}</td>
+            <td style="background-color: 
+    {% if row.DSM_ID == '38TSB' %}
+        red
+    {% else %}
+        inherit
+    {% endif %};
+    color: {% if row.DSM_ID in ['38TSB', '38TNM'] %}white{% else %}black{% endif %};">
+    {{ row.D1 }}
+</td>
+
+            <td>{{ row.D2 }}</td>
+            <td>{{ row.D3 }}</td>
+            <td>{{ row.D4 }}</td>
+            <td>{{ row.D5 }}</td>
+            <td>{{ row.D6 }}</td>
+            <td>{{ row.D7 }}</td>
+            <td>{{ row.D8 }}</td>
+            <td>{{ row.D9 }}</td>
+            <td>{{ row.D10 }}</td>
+            <td>{{ row.D11 }}</td>
+            <td>{{ row.D12 }}</td>
+            <td>{{ row.E1 }}</td>
+            <td>{{ row.E2 }}</td>
+            <td>{{ row.E3 }}</td>
+            <td>{{ row.E4 }}</td>
+            <td>{{ row.E5 }}</td>
+            <td>{{ row.E6 }}</td>
+            <td>{{ row.E7 }}</td>
+            <td>{{ row.E8 }}</td>
+            <td>{{ row.E9 }}</td>
+            <td>{{ row.E10 }}</td>
+            <td>{{ row.E11 }}</td>
+            <td>{{ row.E12 }}</td>
+            <td>{{ row.F1 }}</td>
+            <td>{{ row.F2 }}</td>
+            <td>{{ row.F3 }}</td>
+            <td>{{ row.F4 }}</td>
+            <td>{{ row.F5 }}</td>
+            <td>{{ row.F6 }}</td>
+            <td>{{ row.F7 }}</td>
+            <td>{{ row.F8 }}</td>
+            <td>{{ row.F9 }}</td>
+            <td>{{ row.F10 }}</td>
+            <td>{{ row.F11 }}</td>
+            <td>{{ row.F12 }}</td>
+            <td>{{ row.G1 }}</td>
+            <td>{{ row.G2 }}</td>
+            <td>{{ row.G3 }}</td>
+            <td>{{ row.G4 }}</td>
+            <td>{{ row.G5 }}</td>
+            <td>{{ row.G6 }}</td>
+            <td>{{ row.G7 }}</td>
+            <td>{{ row.G8 }}</td>
+            <td>{{ row.G9 }}</td>
+            <td>{{ row.G10 }}</td>
+            <td>{{ row.G11 }}</td>
+            <td style="background-color: 
+    {% if row.DSM_ID == '38TSB' %}
+        #FFFF9F
+    {% else %}
+        inherit
+    {% endif %};
+    color: {% if row.DSM_ID in ['38TSB', '38TNM'] %}white{% else %}black{% endif %};">
+    {{ row.G12 }}
+</td>
+
+            <td>{{ row.H1 }}</td>
+            <td style="background-color: 
+    {% if row.DSM_ID == '38TSB' %}
+        #806000
+    {% else %}
+        inherit
+    {% endif %};
+    color: {% if row.DSM_ID in ['38TSB', '38TNM'] %}white{% else %}black{% endif %};">
+    {{ row.H2 }}
+</td>
+
+            <td>{{ row.H3 }}</td>
+            <td>{{ row.H4 }}</td>
+            <td>{{ row.H5 }}</td>
+            <td>{{ row.H6 }}</td>
+            <td>{{ row.H7 }}</td>
+            <td>{{ row.H8 }}</td>
+            <td>{{ row.H9 }}</td>
+            <td>{{ row.H10 }}</td>
+            <td>{{ row.H11 }}</td>
+            <td>{{ row.H12 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+

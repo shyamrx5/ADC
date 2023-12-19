@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ADC Database - Load Strains</title>
+</head>
+<body>
+    <h1>Load Strains</h1>
+    <table border="1">
+        <tr>
+            <th>Lib Collection ID</th>
+            <th>KLE ID</th>
+            <th>Genus</th>
+            <th>Species</th>
+            <th>Strain</th>
+            <th>Action</th>
+        </tr>
+        {% for strain in strains %}
+        <tr>
+            <td>{{ strain['Lib Collection ID'] }}</td>
+            <td>{{ strain['KLE_ID'] }}</td>
+            <td>{{ strain['Genus'] }}</td>
+            <td>{{ strain['Species'] }}</td>
+            <td>{{ strain['Strain'] }}</td>
+            <td>{% if strain['Lib Collection ID'] in [1, 2, 10, 38, 39] %}NA{% else %}<a href="/parse_genome/{{ strain['Lib Collection ID'] }}">Parse Genome</a>{% endif %}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

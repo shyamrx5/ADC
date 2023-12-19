@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fermentation Data 2nd June</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        .side-label-cell {
+            text-align: left;
+            padding-left: 10px;
+            font-weight: bold;
+        }
+
+        .zone-of-kill {
+            background-color: white;
+            color: black;
+        }
+        .SigE-green-ring {
+            background-color: green;
+            color: black;
+        }
+        .SigE-lightgreen {
+            background-color: lightgreen;
+        }
+        .SigE-darkgreen {
+            background-color: darkgreen;
+        }
+        .SigE-green {
+            background-color: green;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Fermentation Data Columns</h1>
+    <table>
+        <tr>
+
+            <td class="side-label-cell zone-of-kill">+ Indicates zone of kill</td>
+            <td class="side-label-cell SigE-green-ring">SigE Green ring</td>
+
+        </tr>
+        
+        <tr>
+            <th>Lib_Collection_ID</th>
+            <th>KLE_ID</th>
+            <th>Genus</th>
+            <th>Species</th>
+            <th>Strain</th>
+            <th>SigmaE_Wt_Ec</th>
+            <th>Ecoli_MG1655</th>
+            <th>S_aureus_HG003</th>
+            <th>P_aeruginosa_PA01</th>
+            <th>P_aeruginosa2_PA14</th>
+            <th>A_baumannii_19606</th>
+            <th>C_albicans_SC5314</th>
+            <th>C_albicans3_DSY1024</th>
+            <th>M_tuberculosis_mc2</th>
+            <th>B_burgdorferi_B31</th>
+            <th>Pyoverdine</th>
+            <th>Selectivity</th>
+            <th>Description</th>
+            <th>_19min_483_7SIM_DaroA_z_2</th>
+            <th>_16_8min_435_8SIM_DynoA_z_3</th>
+            <th>_15_5min_152_03_SIM_ADC_T181_z_1</th>
+            <th>_20_1min_496_9SIM_Evy_z_3</th>
+            <th>_14_5min_354_16SIM_Dyno707_z_2</th>
+            <th>_27_4min_376_07SIM_ADC65_z_1</th>
+            <th>_15_5_16_5min_705_4SIM_SS_CC0_z_1</th>
+        </tr>
+        
+        <!-- Add data rows and cells for other categories as needed -->
+        {% for item in fermentation_data %}
+        <tr>
+            <td>{{ item['Lib_Collection_ID'] }}</td>
+            <td>{{ item['KLE_ID'] }}</td>
+            <td>{{ item['Genus'] }}</td>
+            <td>{{ item['Species'] }}</td>
+            <td>{{ item['Strain'] }}</td>
+            <td 
+                {% if item['Lib_Collection_ID'] in [6, 12, 26, 33] %}
+                    class="SigE-lightgreen"
+                {% elif item['Lib_Collection_ID'] in [10, 17, 35, 38, 39] %}
+                    class="SigE-darkgreen"
+                {% elif item['Lib_Collection_ID'] == 37 %}
+                    class="SigE-green"
+                {% endif %}
+            >
+                {{ item['SigmaE_Wt_Ec'] }}
+            </td>
+            <td>{{ item['Ecoli_MG1655'] }}</td>
+            <td>{{ item['S_aureus_HG003'] }}</td>
+            <td>{{ item['P_aeruginosa_PA01'] }}</td>
+            <td>{{ item['P_aeruginosa2_PA14'] }}</td>
+            <td>{{ item['A_baumannii_19606'] }}</td>
+            <td>{{ item['C_albicans_SC5314'] }}</td>
+            <td>{{ item['C_albicans3_DSY1024'] }}</td>
+            <td>{{ item['M_tuberculosis_mc2'] }}</td>
+            <td>{{ item['B_burgdorferi_B31'] }}</td>
+            <td>{{ item['Pyoverdine'] }}</td>
+            <td>{{ item['Selectivity'] }}</td>
+            <td>
+                {{ item['Description'] }}
+            </td>
+            <td>{{ item['_19min_483_7SIM_DaroA_z_2'] }}</td>
+            <td>{{ item['_16_8min_435_8SIM_DynoA_z_3'] }}</td>
+            <td>{{ item['_15_5min_152_03_SIM_ADC_T181_z_1'] }}</td>
+            <td>{{ item['_20_1min_496_9SIM_Evy_z_3'] }}</td>
+            <td>{{ item['_14_5min_354_16SIM_Dyno707_z_2'] }}</td>
+            <td>{{ item['_27_4min_376_07SIM_ADC65_z_1'] }}</td>
+            <td>{{ item['_15_5_16_5min_705_4SIM_SS_CC0_z_1'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

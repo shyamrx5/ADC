@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Gamma Table</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .box-container {
+            display: flex;
+            flex-direction: row;
+            margin-top: 20px;
+        }
+
+        .top-section {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .bottom-section {
+            display: flex;
+            flex-direction: row;
+        }
+
+.box {
+    width: 70px; /* Adjust the width to make the boxes smaller */
+    height: 50px; /* Adjust the height to make the boxes smaller */
+    text-align: center;
+    font-size: 10px; /* Adjust the font size if needed */
+    color: #ffffff;
+}
+
+        .label-box {
+            background-color: #9DC3E6;
+        }
+
+        .empty-box1 {
+            background-color: #DEEBF7;
+        }
+
+        .label-box2 {
+            background-color: #48486C;
+        }
+
+        .empty-box2 {
+            background-color: #797991;
+        }
+.hidden-tooltip {
+  display: none;
+  position: absolute;
+  background-color: red; /* or any other color you prefer */
+  color: white;
+  padding: 5px;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+.potential-link:hover + .hidden-tooltip {
+  display: inline-block;
+}
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 6px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gamma Table Data</h1>
+
+
+    
+
+    <div class="box-container">
+            <div class="container">
+        <div class="top-section">
+            <div class="box label-box">GN</div>
+            <div class="box empty-box1"></div>
+        </div>
+        <div class="bottom-section">
+            <div class="box label-box2">Bam</div>
+            <div class="box empty-box2"></div>
+        </div>
+    </div>
+    <div style="margin-left: 20px;"></div>
+        <div class="box label-box" style="background-color: red;">GP</div>
+        <div class="box label-box2" style="background-color: #FF8181;margin-right: 10px">GP</div>
+        <div class="box" style="background-color: #7030A0; color: white;">BR</div>
+        <div class="box" style="background-color: #C9A6E4; color: white;margin-right: 10px;">BR</div>
+        <div class="box" style="background-color: yellow; color: black;">Mammal</div>
+        <div class="box" style="background-color: #FFF2CC; color: black;margin-right: 10px;">Mammal</div>
+        <div class="box" style="background-color: black; color: white; margin-right: 10px;">ALL</div>
+        <div class="box label-box" style="background-color: #C65911; color: white;">W0153</div>
+        <div class="box label-box2" style="background-color: #F4B084; color: white;margin-right: 10px;">W0153</div>
+        <div class="box" style="background-color: #002060; color: white;margin-right: 10px;">Fung+Bac</div>
+        <div class="box" style="background-color: #00B050; color: white;">Ab</div>
+        <div class="box label-box2" style="background-color: #61D495; color: white;margin-right: 10px;">Ab</div>
+        <div class="box" style="background-color: #00B0F0; color: white;margin-right: 10px;">C auris selective</div>
+        <div class="box label-box" style="background-color: #806000; color: white;">Mab</div>
+        <div class="box label-box2" style="background-color: #BF8F00; color: white;margin-right: 10px;">Mab</div>
+    </div>
+
+  
+    <table>
+        <tr>
+            <th>Lib_Collection_ID</th>
+            <th>KLE_ID</th>
+            <th>Genus</th>
+            <th>Species</th>
+            <th>Strain</th>
+            <th>DSM_ID</th>
+            <th>Select_Value</th>
+            <th>A1</th>
+            <th>A2</th>
+            <th>A3</th>
+            <th>A4</th>
+            <th>A5</th>
+            <th>A6</th>
+            <th>A7</th>
+            <th>A8</th>
+            <th>A9</th>
+            <th>A10</th>
+            <th>A11</th>
+            <th>A12</th>
+            <th>B1</th>
+            <th>B2</th>
+            <th>B3</th>
+            <th>B4</th>
+            <th>B5</th>
+            <th>B6</th>
+            <th>B7</th>
+            <th>B8</th>
+            <th>B9</th>
+            <th>B10</th>
+            <th>B11</th>
+            <th>B12</th>
+            <!-- Continue adding headers for columns C1 to H12 -->
+            <th>C1</th>
+            <th>C2</th>
+            <th>C3</th>
+            <th>C4</th>
+            <th>C5</th>
+            <th>C6</th>
+            <th>C7</th>
+            <th>C8</th>
+            <th>C9</th>
+            <th>C10</th>
+            <th>C11</th>
+            <th>C12</th>
+            <th>D1</th>
+            <th>D2</th>
+            <th>D3</th>
+            <th>D4</th>
+            <th>D5</th>
+            <th>D6</th>
+            <th>D7</th>
+            <th>D8</th>
+            <th>D9</th>
+            <th>D10</th>
+            <th>D11</th>
+            <th>D12</th>
+            <th>E1</th>
+            <th>E2</th>
+            <th>E3</th>
+            <th>E4</th>
+            <th>E5</th>
+            <th>E6</th>
+            <th>E7</th>
+            <th>E8</th>
+            <th>E9</th>
+            <th>E10</th>
+            <th>E11</th>
+            <th>E12</th>
+            <th>F1</th>
+            <th>F2</th>
+            <th>F3</th>
+            <th>F4</th>
+            <th>F5</th>
+            <th>F6</th>
+            <th>F7</th>
+            <th>F8</th>
+            <th>F9</th>
+            <th>F10</th>
+            <th>F11</th>
+            <th>F12</th>
+            <th>G1</th>
+            <th>G2</th>
+            <th>G3</th>
+            <th>G4</th>
+            <th>G5</th>
+            <th>G6</th>
+            <th>G7</th>
+            <th>G8</th>
+            <th>G9</th>
+            <th>G10</th>
+            <th>G11</th>
+            <th>G12</th>
+            <th>H1</th>
+            <th>H2</th>
+            <th>H3</th>
+            <th>H4</th>
+            <th>H5</th>
+            <th>H6</th>
+            <th>H7</th>
+            <th>H8</th>
+            <th>H9</th>
+            <th>H10</th>
+            <th>H11</th>
+            <th>H12</th>
+        </tr>
+        <!-- Iterate through your data and generate rows -->
+        {% for row in gamma_data %}
+        <tr>
+<td {% if row.Lib_Collection_ID == '38' %}style="background-color: #FFFF9F;"{% endif %}>
+    {% if row.Lib_Collection_ID == '38' %}
+        <a href="{{ url_for('load_khani_gamma_table', lib_collection_id=row.Lib_Collection_ID) }}" target="_blank">{{ row.Lib_Collection_ID }}</a>
+    {% else %}
+        {{ row.Lib_Collection_ID }}
+    {% endif %}
+</td>
+
+<td>{{ row.KLE_ID }}</td>
+            <td>{{ row.Genus }}</td>
+            <td>{{ row.Species }}</td>
+            <td>{{ row.Strain }}</td>
+            <td>{{ row.DSM_ID }}</td>
+            <td>{{ row.Select_Value }}</td>
+            <td style="background-color: {% if row.Lib_Collection_ID == '25' %}yellow{% else %}white{% endif %}">{{ row.A1 }}</td>
+            <td>{{ row.A2 }}</td>
+            <td>{{ row.A3 }}</td>
+            <td>{{ row.A4 }}</td>
+            <td style="background-color: {% if row.Lib_Collection_ID == '4' %}#FF8181{% else %}white{% endif %}">{{ row.A5 }}</td>
+            <td style="background-color:
+    {% if row.Lib_Collection_ID in ['8', '23', '39'] %}yellow;
+    {% elif row.Lib_Collection_ID in ['27', '13'] %}white;
+    {% elif row.Lib_Collection_ID == '1' or
+            row.Lib_Collection_ID == '2' or
+            row.Lib_Collection_ID == '3' or
+            row.Lib_Collection_ID == '4' or
+            row.Lib_Collection_ID == '5' or
+            row.Lib_Collection_ID == '6' or
+            row.Lib_Collection_ID == '7' or
+            row.Lib_Collection_ID == '9' or
+            row.Lib_Collection_ID == '10' or
+            row.Lib_Collection_ID == '11' or
+            row.Lib_Collection_ID == '12' or
+            row.Lib_Collection_ID == '14' or
+            row.Lib_Collection_ID == '15' or
+            row.Lib_Collection_ID == '16' or
+            row.Lib_Collection_ID == '17' or
+            row.Lib_Collection_ID == '18' or
+            row.Lib_Collection_ID == '19' or
+            row.Lib_Collection_ID == '20' or
+            row.Lib_Collection_ID == '21' or
+            row.Lib_Collection_ID == '22' or
+            row.Lib_Collection_ID == '24' or
+            row.Lib_Collection_ID == '25' or
+            row.Lib_Collection_ID == '26' or
+            row.Lib_Collection_ID == '28' or
+            row.Lib_Collection_ID == '29' or
+            row.Lib_Collection_ID == '30' or
+            row.Lib_Collection_ID == '31' or
+            row.Lib_Collection_ID == '32' or
+            row.Lib_Collection_ID == '33' or
+            row.Lib_Collection_ID == '34' or
+            row.Lib_Collection_ID == '35' or
+            row.Lib_Collection_ID == '36' or
+            row.Lib_Collection_ID == '37' or
+            row.Lib_Collection_ID == '38' or
+            row.Lib_Collection_ID == '40' or
+            row.Lib_Collection_ID == '41' or
+            row.Lib_Collection_ID == '42' or
+            row.Lib_Collection_ID == '43' %}black;
+    {% else %}white;{% endif %};
+    color: {% if row.Lib_Collection_ID in ['8', '23', '39', '27', '13'] %}black; {% else %}white; {% endif %};">{{ row.A6 }}</td>
+
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '30' %}yellow;
+    {% elif row.Lib_Collection_ID == '14' %}black;
+    {% else %}white;{% endif %};">
+    {{ row.A7 }}
+</td>
+            <td style="background-color: 
+                {% if row.Lib_Collection_ID == '1' %}#BDD7EE;
+                {% elif row.Lib_Collection_ID == '4' or row.Lib_Collection_ID == '28' %}#7030A0;
+                {% elif row.Lib_Collection_ID == '8' %}#FFF2CC;
+                {% elif row.Lib_Collection_ID == '14' or row.Lib_Collection_ID == '22' or row.Lib_Collection_ID == '29' %}black;
+                {% elif row.Lib_Collection_ID == '6' or row.Lib_Collection_ID == '33' %}#FF8181;
+                {% else %}white;{% endif %};
+                color: 
+                {% if row.Lib_Collection_ID in ['14', '22', '29'] %}white;
+                {% else %}black;{% endif %};">{{ row.A8 }}</td>
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '5' %}#FF8181;
+    {% elif row.Lib_Collection_ID == '29' %}red;
+    {% elif row.Lib_Collection_ID in ['4', '14', '22', '28'] %}black;
+    {% elif row.Lib_Collection_ID == '21' %}#FFF2CC;
+    {% elif row.Lib_Collection_ID == '29' or row.Lib_Collection_ID == '34' or row.Lib_Collection_ID == '41' %}#FF8181;
+    {% else %}white;{% endif %};
+    color: 
+    {% if row.Lib_Collection_ID in ['4', '14', '22', '28'] or row.Lib_Collection_ID == '21' %}white;
+    {% else %}black;{% endif %};">
+    {{ row.A9 }}
+</td>
+
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '14' %}#7030A0;
+    {% elif row.Lib_Collection_ID in ['22', '28'] %}#C9A6E4;
+    {% elif row.Lib_Collection_ID in ['29', '31'] %}red;
+    {% else %}white;{% endif %};">
+    {{ row.A10 }}
+</td>
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '14' %}#7030A0;
+    {% elif row.Lib_Collection_ID == '19' %}#FFF2CC;
+    {% elif row.Lib_Collection_ID == '29' %}#FF8181;
+    {% else %}white;{% endif %};">
+    {{ row.A11 }}
+</td>
+
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID in ['3', '9', '23', '43'] %}#FFF2CC;
+    {% elif row.Lib_Collection_ID in ['5', '19', '34'] %}yellow;
+    {% elif row.Lib_Collection_ID == '14' %}#002060;
+    {% else %}white;{% endif %};">
+    {{ row.A12 }}
+</td>
+
+
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID in ['1', '5', '34'] %}yellow;
+    {% elif row.Lib_Collection_ID in ['9', '21', '41', '43'] %}#FFF2CC;
+    {% elif row.Lib_Collection_ID == '14' %}#002060;
+    {% else %}white;{% endif %};">
+    {{ row.B1 }}
+</td>
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '5' %}yellow;
+    {% elif row.Lib_Collection_ID == '22' %}#C9A6E4;
+    {% elif row.Lib_Collection_ID == '14' %}#002060;
+    {% elif row.Lib_Collection_ID == '29' %}#FF8181;
+    {% else %}white;{% endif %};">
+    {{ row.B2 }}
+</td>
+
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID in ['22', '28'] %}#C9A6E4;
+    {% elif row.Lib_Collection_ID == '14' %}#002060;
+    {% elif row.Lib_Collection_ID == '29' %}red;
+    {% else %}white;{% endif %};">
+    {{ row.B3 }}
+</td>
+
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '14' %}#7030A0;
+    {% elif row.Lib_Collection_ID in ['28', '29'] %}#C9A6E4;
+    {% else %}white;{% endif %};">
+    {{ row.B4 }}
+</td>
+
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '14' %}#7030A0;
+    {% elif row.Lib_Collection_ID == '22' %}red;
+    {% elif row.Lib_Collection_ID in ['28', '29'] %}#C9A6E4;
+    {% else %}white;{% endif %};">
+    {{ row.B5 }}
+</td>
+
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '14' %}#7030A0;
+    {% elif row.Lib_Collection_ID == '29' %}#C9A6E4;
+    {% elif row.Lib_Collection_ID == '28' %}#FF8181;
+    {% else %}white;{% endif %};">
+    {{ row.B6 }}
+</td>
+
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '14' %}#7030A0;
+    {% else %}white;{% endif %};">
+    {{ row.B7 }}
+</td>
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '14' %}#C9A6E4;
+    {% else %}white;{% endif %};">
+    {{ row.B8 }}
+</td>
+
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '14' %}#C9A6E4;
+    {% elif row.Lib_Collection_ID == '29' %}red;
+    {% else %}white;{% endif %};">
+    {{ row.B9 }}
+</td>
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '14' %}#C9A6E4;
+    {% elif row.Lib_Collection_ID == '29' %}red;
+    {% else %}white;{% endif %};">
+    {{ row.B10 }}
+</td>
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '11' %}#48486C;
+    {% elif row.Lib_Collection_ID == '14' %}#C9A6E4;
+    {% elif row.Lib_Collection_ID == '20' %}#00B050;
+    {% elif row.Lib_Collection_ID == '24' %}#61D495;
+    {% elif row.Lib_Collection_ID == '29' %}#FF8181;
+    {% else %}white;{% endif %};">
+    {{ row.B11 }}
+</td>
+
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '11' %}#48486C;
+    {% elif row.Lib_Collection_ID == '20' %}#00B050;
+    {% elif row.Lib_Collection_ID == '12' %}#797991;
+    {% else %}white;{% endif %};">
+    {{ row.B12 }}
+</td>
+
+            <!-- Continue adding data for columns C1 to H12 -->
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '20' %}#61D495;
+    {% elif row.Lib_Collection_ID == '24' %}#00B050;
+    {% else %}white;{% endif %};">
+    {{ row.C1 }}
+</td>
+
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '39' %}#DEEBF7;
+    {% elif row.Lib_Collection_ID == '17' %}#797991;
+    {% else %}white;{% endif %};">
+    {{ row.C2 }}
+</td>
+
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '10' %}#C65911;
+    {% else %}white;{% endif %};">
+    {{ row.C3 }}
+</td>
+
+            <td style="background-color: 
+    {% if row.Lib_Collection_ID == '6' %}#9DC3E6;
+    {% else %}white;{% endif %};">
+    {{ row.C4 }}
+</td>
+
+            <td style="background-color: 
+{% if row.Lib_Collection_ID == '2' %}#FF8181;
+{% elif row.Lib_Collection_ID == '4' %}#7030A0;
+{% elif row.Lib_Collection_ID == '6' %}#9DC3E6;
+{% elif row.Lib_Collection_ID == '11' %}#9DC3E6;
+{% else %}white;{% endif %};">
+{{ row.C5 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '9' or row.Lib_Collection_ID == '10' %}#DEEBF7;
+{% elif row.Lib_Collection_ID == '6' or row.Lib_Collection_ID == '11' %}#9DC3E6;
+{% elif row.Lib_Collection_ID == '4' %}#7030A0;
+{% elif row.Lib_Collection_ID == '18' %}#3B3838;
+{% else %}white;{% endif %};">
+{{ row.C6 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '4' %}#7030A0;
+{% elif row.Lib_Collection_ID in ['9', '10', '11', '17', '35', '38'] %}#9DC3E6;
+{% elif row.Lib_Collection_ID == '18' %}#3B3838;
+{% elif row.Lib_Collection_ID == '8' %}#FF8181;
+{% else %}white;{% endif %};">
+{{ row.C7 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '1' %}#C65911;
+{% elif row.Lib_Collection_ID == '4' %}#7030A0;
+{% elif row.Lib_Collection_ID == '5' %}#C9A6E4;
+{% elif row.Lib_Collection_ID in ['9', '35', '39'] %}#DDEBF7;
+{% elif row.Lib_Collection_ID in ['10', '11', '17'] %}#9DC3E6;
+{% else %}white;{% endif %};">
+{{ row.C8 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '1' %}#C65911;
+{% elif row.Lib_Collection_ID == '4' or row.Lib_Collection_ID == '5' or row.Lib_Collection_ID == '22' %}#7030A0;
+{% elif row.Lib_Collection_ID in ['9', '35', '38', '37'] %}#DDEBF7;
+{% elif row.Lib_Collection_ID == '10' or row.Lib_Collection_ID == '119' %}#9DC3E6;
+{% elif row.Lib_Collection_ID == '17' %}#797991;
+{% elif row.Lib_Collection_ID == '28' %}#002060;
+{% else %}white;{% endif %};">
+{{ row.C9 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '1' %}#F4B084;
+{% elif row.Lib_Collection_ID == '2' %}#FFFF9F;
+{% elif row.Lib_Collection_ID == '4' %}#7030A0;
+{% elif row.Lib_Collection_ID == '5' %}#BDD7EE;
+{% elif row.Lib_Collection_ID in ['9', '11'] %}#DEEBF7;
+{% elif row.Lib_Collection_ID == '10' %}#9DC3E6;
+{% elif row.Lib_Collection_ID == '17' %}#797991;
+{% elif row.Lib_Collection_ID in ['18', '22'] %}#3B3838;
+{% elif row.Lib_Collection_ID == '28' %}#002060;
+{% elif row.Lib_Collection_ID == '37' %}#C65911;
+{% else %}white;{% endif %};
+color: {% if row.Lib_Collection_ID == '22' or row.Lib_Collection_ID == '18' %}white;{% else %}black;{% endif %};">
+{{ row.C10 }}
+</td>
+
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '4' %}#7030A0;
+{% elif row.Lib_Collection_ID == '7' or row.Lib_Collection_ID == '29' %}red;
+{% elif row.Lib_Collection_ID == '28' %}#002060;
+{% elif row.Lib_Collection_ID in ['18', '22'] %}#3B3838;
+{% elif row.Lib_Collection_ID == '10' %}#DEEBF7;
+{% elif row.Lib_Collection_ID == '9' %}#C65911;
+{% elif row.Lib_Collection_ID in ['31', '38'] %}#FF8181;
+{% else %}white;{% endif %};">
+{{ row.C11 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '4' or row.Lib_Collection_ID == '22' %}#7030A0;
+{% elif row.Lib_Collection_ID == '7' or row.Lib_Collection_ID == '19' %}#FF8181;
+{% elif row.Lib_Collection_ID == '9' or row.Lib_Collection_ID == '10' %}#C65911;
+{% elif row.Lib_Collection_ID == '18' %}#3B3838;
+{% elif row.Lib_Collection_ID == '28' %}#002060;
+{% elif row.Lib_Collection_ID == '29' %}red;
+{% else %}white;{% endif %};">
+{{ row.C12 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '4' %}#7030A0;
+{% elif row.Lib_Collection_ID in ['7', '23', '24' , '38'] %}red;
+{% elif row.Lib_Collection_ID == '18' %}#3B3838;
+{% elif row.Lib_Collection_ID == '10' %}#C65911;
+{% elif row.Lib_Collection_ID == '9' %}#F4B084;
+{% elif row.Lib_Collection_ID == '28' %}#002060;
+{% elif row.Lib_Collection_ID in ['19', '29'] %}#FF8181;
+{% elif row.Lib_Collection_ID == '22' %}#7030A0;
+{% else %}white;{% endif %};">
+{{ row.D1 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID in ['3', '7', '18', '19'] %}red;
+{% elif row.Lib_Collection_ID in ['4', '22'] %}#7030A0;
+{% elif row.Lib_Collection_ID == '28' %}#002060;
+{% elif row.Lib_Collection_ID == '10' %}#F4B084;
+{% else %}white;{% endif %};">
+{{ row.D2 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID in ['4', '22'] %}#7030A0;
+{% elif row.Lib_Collection_ID == '28' %}#002060;
+{% elif row.Lib_Collection_ID == '10' %}#F4B084;
+{% elif row.Lib_Collection_ID == '7' %}#FF8181;
+{% elif row.Lib_Collection_ID == '18' %}#C9A6E4;
+{% else %}white;{% endif %};">
+{{ row.D3 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID in ['4', '22'] %}#7030A0;
+{% elif row.Lib_Collection_ID == '28' %}#002060;
+{% elif row.Lib_Collection_ID == '10' %}#F4B084;
+{% elif row.Lib_Collection_ID == '7' %}#FF8181;
+{% elif row.Lib_Collection_ID == '18' %}#C9A6E4;
+{% else %}white;{% endif %};">
+{{ row.D4 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID in ['4', '22'] %}#7030A0;
+{% elif row.Lib_Collection_ID == '22' %}#C9A6E4;
+{% elif row.Lib_Collection_ID in ['7', '18'] %}red;
+{% elif row.Lib_Collection_ID == '28' %}#002060;
+{% else %}white;{% endif %};">
+{{ row.D5 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '28' %}#C9A6E4;
+{% elif row.Lib_Collection_ID in ['4', '18', '22'] %}red;
+{% else %}white;{% endif %};">
+{{ row.D6 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID in ['28', '18'] %}#3B3838;
+{% elif row.Lib_Collection_ID == '22' %}red;
+{% elif row.Lib_Collection_ID == '29' %}#FFFF9F;
+{% else %}white;{% endif %};">
+{{ row.D7 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID in ['28', '18'] %}#3B3838;
+{% elif row.Lib_Collection_ID == '29' %}#FFFF9F;
+{% else %}white;{% endif %};
+color: #FFFF9F;">
+{{ row.D8 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID in ['18'] %}red;
+{% else %}white;{% endif %};">
+{{ row.D9 }}
+</td>
+
+
+           <td style="background-color:
+{% if row.Lib_Collection_ID in ['18'] %}red;
+{% else %}white;{% endif %};">
+{{ row.D10 }}
+</td>
+
+          <td style="background-color:
+{% if row.Lib_Collection_ID in ['8', '33'] %}#FF8181;
+{% elif row.Lib_Collection_ID in ['18', '28', '29'] %} #3B3838;
+{% elif row.Lib_Collection_ID in ['23', '24'] %}#FFFF9F;
+{% else %}white;{% endif %};">
+{{ row.D11 }}
+</td>
+
+<td style="background-color:
+{% if row.Lib_Collection_ID in ['28', '29', '4'] %}#FFFF9F;
+{% elif row.Lib_Collection_ID in ['30', '26', '23', '24', '20', '18', '15', '16', '8'] %}#3B3838;
+{% elif row.Lib_Collection_ID == '19' %}yellow;
+{% elif row.Lib_Collection_ID == '25' %}#FF8181;
+{% else %}white;{% endif %};">
+{{ row.D12 }}
+</td>
+
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}#7030A0;
+{% elif row.Lib_Collection_ID == '23' %}#A9D08E;
+{% else %}white;{% endif %};">
+{{ row.E1 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}#7030A0;
+{% elif row.Lib_Collection_ID == '28' %}#9DC3E6;
+{% else %}white;{% endif %};">
+{{ row.E2 }}
+</td>
+
+            
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}#C9A6E4;
+{% else %}white;{% endif %};">
+{{ row.E3 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}red;
+{% else %}white;{% endif %};">
+{{ row.E4 }}
+</td>
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}red;
+{% else %}white;{% endif %};">
+{{ row.E5 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}#C9A6E4;
+{% else %}white;{% endif %};">
+{{ row.E6 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}#3B3838;
+{% else %}white;{% endif %};">
+{{ row.E7 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}#3B3838;
+{% else %}white;{% endif %};">
+{{ row.E8 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '16' %}#A9D08E;
+{% else %}white;{% endif %};">
+{{ row.E9 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}red;
+{% elif row.Lib_Collection_ID == '23' %}#A9D08E;
+{% else %}white;{% endif %};">
+{{ row.E10 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}red;
+{% elif row.Lib_Collection_ID == '20' %}yellow;
+{% elif row.Lib_Collection_ID == '29' %}#A9D08E;
+{% else %}white;{% endif %};">
+{{ row.E11 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID in ['18', '31'] %}#FF8181;
+{% elif row.Lib_Collection_ID == '23' %}#A9D08E;
+{% else %}white;{% endif %};">
+{{ row.E12 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}#FF8181;
+{% else %}white;{% endif %};">
+{{ row.F1 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}#FF8181;
+{% elif row.Lib_Collection_ID in ['22', '23'] %}#A9D08E;
+{% else %}white;{% endif %};">
+{{ row.F2 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}#FF8181;
+{% elif row.Lib_Collection_ID == '22' %}#A9D08E;
+{% else %}white;{% endif %};">
+{{ row.F3 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '22' %}#A9D08E;
+{% else %}white;{% endif %};">
+{{ row.F4 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}red;
+{% elif row.Lib_Collection_ID == '23' %}#A9D08E;
+{% else %}white;{% endif %};">
+{{ row.F5 }}
+</td>
+
+<td style="background-color:
+{% if row.Lib_Collection_ID == '23' %}#A9D08E;
+{% elif row.Lib_Collection_ID == '41' %}#00B0F0;
+{% else %}white;{% endif %};">
+  {% if row.Lib_Collection_ID == '41' %}
+    <a href="#" class="potential-link">F6</a>
+    <span class="hidden-tooltip">Potential [M+H]+ - 403.28<br>464.26</span>
+  {% else %}
+    {{ row.F6 }}
+  {% endif %}
+</td>
+
+
+            <td>{{ row.F7 }}</td>
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}red;
+{% else %}white;{% endif %};">
+{{ row.F8 }}
+</td>
+
+            <td>{{ row.F9 }}</td>
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '22' %}#A9D08E;
+{% else %}white;{% endif %};">
+{{ row.F10 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '18' %}red;
+{% elif row.Lib_Collection_ID == '22' %}#A9D08E;
+{% else %}white;{% endif %};">
+{{ row.F11 }}
+</td>
+
+            <td>{{ row.F12 }}</td>
+            <td style="background-color:
+{% if row.Lib_Collection_ID in ['3', '7'] %}#FFF2CC;
+{% else %}white;{% endif %};">
+{{ row.G1 }}
+</td>
+
+            <td>{{ row.G2 }}</td>
+            <td>{{ row.G3 }}</td>
+            <td>{{ row.G4 }}</td>
+            <td>{{ row.G5 }}</td>
+            <td>{{ row.G6 }}</td>
+            <td style="background-color:
+{% if row.Lib_Collection_ID in ['6', '11'] %}yellow;
+{% else %}white;{% endif %};">
+{{ row.G7 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '11' %}yellow;
+{% elif row.Lib_Collection_ID == '6' %}#FFF2CC;
+{% else %}white;{% endif %};">
+{{ row.G8 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID in ['3', '11'] %}yellow;
+{% elif row.Lib_Collection_ID == '18' %}#FF8181;
+{% else %}white;{% endif %};">
+{{ row.G9 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '3' %}yellow;
+{% else %}white;{% endif %};">
+{{ row.G10 }}
+</td>
+
+            <td>{{ row.G11 }}</td>
+            <td style="background-color:
+{% if row.Lib_Collection_ID in ['21', '26', '38'] %}#FFF2CC;
+{% elif row.Lib_Collection_ID in ['36', '33'] %}yellow;
+{% else %}white;{% endif %};">
+{{ row.G12 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID in ['16'] %}yellow;
+{% else %}white;{% endif %};">
+{{ row.H1 }}
+</td>
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '38' %}#806000;
+{% else %}white;{% endif %};">
+{{ row.H2 }}
+</td>
+
+            <td style="background-color:
+{% if row.Lib_Collection_ID in ['6'] %}yellow;
+{% else %}white;{% endif %};">
+{{ row.H3 }}
+</td>
+            <td style="background-color:
+{% if row.Lib_Collection_ID == '7' %}#806000;
+{% else %}white;{% endif %};">
+{{ row.H4 }}
+</td>
+
+            <td>{{ row.H5 }}</td>
+            <td>{{ row.H6 }}</td>
+            <td>{{ row.H7 }}</td>
+            <td style="background-color:
+{% if row.Lib_Collection_ID in ['6', '36'] %}yellow;
+{% else %}white;{% endif %};">
+{{ row.H8 }}
+</td>
+
+            <td>{{ row.H9 }}</td>
+            <td>{{ row.H10 }}</td>
+            <td>{{ row.H11 }}</td>
+            <td>{{ row.H12 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Genome Information</title>
+</head>
+<body>
+    <h1>Genome Information</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Accession No</th>
+            <th>BasePair</th>
+            <th>FASTA Sequence</th>
+            <th>Protein ID</th>
+            <th>Translation Sequence</th>
+        </tr>
+        {% for info in genome_info %}
+        <tr>
+            <td>{{ info['strain_details_Lib_Collection_ID'] }}</td>
+            <td>
+                <a href="https://www.ncbi.nlm.nih.gov/nuccore/{{ info['Accession_No'] }}" target="_blank">
+                    {{ info['Accession_No'] }}
+                </a>
+            </td>
+            <td>{{ info['BasePair'] }}</td>
+            <td>{% if info['FASTA_Sequence'].startswith('http://') or info['FASTA_Sequence'].startswith('https://') %}
+                    <a href="{{ info['FASTA_Sequence'] }}" target="_blank">{{ info['FASTA_Sequence'] }}</a>
+                {% else %}
+                    {{ info['FASTA_Sequence'] }}
+                {% endif %}</td>
+            <td>{{ info['Protein_ID'] }}</td>
+            <td>{{ info['Translation_Sequence'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
